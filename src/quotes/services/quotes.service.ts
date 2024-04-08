@@ -20,7 +20,6 @@ export class QuotesService {
   ) {}
 
   async findAll(): Promise<Quote[]> {
-    console.log(new Date());
     return this.quotesRepository.find({ relations: ['service'] });
   }
 
@@ -44,7 +43,6 @@ export class QuotesService {
     const existQuote = await this.quotesRepository.find({
       where: { date: quote.date },
     });
-    console.log(existQuote);
 
     if (existQuote.length) {
       throw new BadRequestException(`Quote ${quote.date} already exists`);

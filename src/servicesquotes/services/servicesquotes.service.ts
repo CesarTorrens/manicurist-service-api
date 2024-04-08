@@ -70,7 +70,6 @@ export class ServicesquotesService {
     }
 
     this.servicesQuotesRepository.merge(ServicesQuotes, changes);
-    console.log(ServicesQuotes);
     await this.servicesQuotesRepository.update(id, ServicesQuotes);
     return await this.servicesQuotesRepository.save(ServicesQuotes);
   }
