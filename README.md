@@ -30,7 +30,17 @@
 
 ```bash
 $ npm install
+$ docker-compose up -d pgadmin
+$ npm run npm run migrations:generate ./src/database/migrations/init
+$ npm run npm run migrations:run
 ```
+
+## Check the port
+please, check the port on running this backend. This localhost you need in project front.
+
+## Considerations
+
+When the project starts running, the seeders will be executed to populate the database. It is important to have previously run the migrations.
 
 ## Running the app
 

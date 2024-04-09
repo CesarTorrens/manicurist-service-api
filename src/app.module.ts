@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, OnModuleInit } from '@nestjs/common';
 import { AppController } from './app.controller';
 import * as Joi from 'joi';
 import { AppService } from './app.service';
@@ -10,6 +10,8 @@ import { environments } from './environments';
 import { CategoriesModule } from './categories/categories.module';
 import { QuotesModule } from './quotes/quotes.module';
 import { ServicesquotesModule } from './servicesquotes/servicesquotes.module';
+import { SeedsService } from './seeds/services/seed.service';
+import { SeedsModule } from './seeds/seeds.module';
 import config from './config';
 
 @Module({
@@ -32,8 +34,14 @@ import config from './config';
     CategoriesModule,
     QuotesModule,
     ServicesquotesModule,
+    SeedsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SeedsService],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  constructor(private readonly seedsService: SeedsService) {}
+  async onModuleInit() {
+    const data = await this.seedsService.seed();
+  }
+}
