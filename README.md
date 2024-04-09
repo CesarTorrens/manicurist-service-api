@@ -31,8 +31,8 @@
 ```bash
 $ npm install
 $ docker-compose up -d pgadmin
-$ npm run npm run migrations:generate ./src/database/migrations/init
-$ npm run npm run migrations:run
+$ npm run migrations:generate ./src/database/migrations/init
+$ npm run migrations:run
 ```
 
 ## Check the port
