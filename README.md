@@ -36,7 +36,10 @@ $ npm run migrations:run
 ```
 
 ## Check the port
-please, check the port on running this backend. This localhost you need in project front.
+remember create the file .env, copy .env.example. You need all variables because the project have validation with Joi.
+
+## Check the port
+please, check the port on running this backend. This localhost you need in project front is it port 3000.
 
 ## Considerations
 
